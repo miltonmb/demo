@@ -1,4 +1,4 @@
-package com.itshareplus.googlemapdemo;
+package com.Demo.googlemapdemo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

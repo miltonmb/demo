@@ -1,4 +1,4 @@
-package com.itshareplus.googlemapdemo;
+package com.Demo.googlemapdemo;
 
 import org.junit.Test;
 
