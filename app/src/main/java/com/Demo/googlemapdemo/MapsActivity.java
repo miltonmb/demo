@@ -52,50 +52,26 @@ import java.util.List;
 import Modules.DirectionFinderListener;
 
 import Modules.Route;
-
-
-
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, DirectionFinderListener {
-
-
-
     private GoogleMap mMap;
-
     private Button btnMarcar;
-
     private Button btVerFeed;
-
     private ProgressDialog progressDialog;
-
     private LocationManager location;
-
     private Marker currLocationMarker;
-
-
-
+    
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_maps);
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-
                 .findFragmentById(R.id.map);
-
         mapFragment.getMapAsync(this);
-
-
         location = (LocationManager) getSystemService(LOCATION_SERVICE);
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-
         if (location.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             location.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, new LocationListener() {
 
@@ -112,7 +88,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         List<android.location.Address> addressList = geocoder.getFromLocation(lat, lon, 1);
                         String str = addressList.get(0).getLocality() + ",";
                         str += addressList.get(0).getCountryName();
-                        currLocationMarker = mMap.addMarker(new MarkerOptions().position(latLng).title(str));
+                        //currLocationMarker = mMap.addMarker(new MarkerOptions().position(latLng).title(str));
                         CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(latLng, 20);
                         mMap.moveCamera(cameraPosition);
                         mMap.animateCamera(cameraPosition);
@@ -156,7 +132,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         List<android.location.Address> addressList = geocoder.getFromLocation(lat, lon, 1);
                         String str = addressList.get(0).getLocality() + ", ";
                         str += addressList.get(0).getCountryName();
-                        currLocationMarker = mMap.addMarker(new MarkerOptions().position(latLng).title(str));
+                       // currLocationMarker = mMap.addMarker(new MarkerOptions().position(latLng).title(str));
                         CameraUpdate cameraPosition = CameraUpdateFactory.newLatLngZoom(latLng, 20);
                         mMap.moveCamera(cameraPosition);
                         mMap.animateCamera(cameraPosition);
