@@ -16,7 +16,6 @@ public class SplashActivity extends Activity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_splash);
-
         new Handler().postDelayed(new Runnable(){
             public void run(){
                 Intent intent = new Intent(SplashActivity.this, MapsActivity.class);
@@ -24,5 +23,9 @@ public class SplashActivity extends Activity {
                 finish();
             };
         }, DURACION_SPLASH);
+
+        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
